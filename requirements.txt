@@ -7,3 +7,6 @@ chromadb
 python-dotenv
 requests
 pytest
+fastapi
+uvicorn
+httpx
