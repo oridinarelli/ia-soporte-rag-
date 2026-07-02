@@ -1,0 +1,19 @@
+# Variables de entorno
+.env
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Archivos de Python
+__pycache__/
+*.pyc
+
+# Base vectorial de Chroma
+retrieval/chroma_db/
+
+# Archivos del sistema
+.DS_Store
+
+# Configuración de VS Code
+.vscode/

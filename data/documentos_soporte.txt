@@ -1,0 +1,15 @@
+El error 500 en el sistema de facturación suele estar relacionado con fallas internas del servidor o problemas de conexión con la base de datos.
+
+Para reiniciar el servicio de facturación, ingresar al panel de administración, seleccionar Servicios, buscar Facturación y presionar Reiniciar.
+
+El error de login puede deberse a credenciales incorrectas, usuario bloqueado o problemas con el servicio de autenticación.
+
+Para configurar la VPN empresarial, instalar el cliente oficial, ingresar usuario corporativo y validar el segundo factor de autenticación.
+
+ChromaDB es una base de datos vectorial utilizada para almacenar embeddings y recuperar documentos por similitud semántica.
+
+LangChain permite construir pipelines modulares que integran prompts, modelos de lenguaje, herramientas y recuperación de contexto.
+
+LangGraph permite modelar agentes con estados, ciclos, memoria y transiciones condicionales.
+
+Para solucionar el error 500 en el sistema de facturación, primero verificar los logs del servidor, luego revisar la conexión con la base de datos y finalmente reiniciar el servicio de facturación desde el panel de administración. Si el error continúa, escalar el incidente al equipo de backend.

@@ -1,0 +1,9 @@
+langchain
+langchain-core
+langchain-community
+langchain-chroma
+langgraph
+chromadb
+python-dotenv
+requests
+pytest

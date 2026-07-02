@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ia-soporte-rag
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ia-soporte-rag
+  template:
+    metadata:
+      labels:
+        app: ia-soporte-rag
+    spec:
+      containers:
+        - name: ia-soporte-rag
+          image: ia-soporte-rag:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ia-secrets
+                  key: GOOGLE_API_KEY
+          ports:
+            - containerPort: 8000
