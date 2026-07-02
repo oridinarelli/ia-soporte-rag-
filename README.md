@@ -154,3 +154,17 @@ El proyecto incorpora:
 # Autor
 
 Proyecto desarrollado como trabajo final del curso IA Engineering.
+
+---
+
+# Checklist de evaluación
+
+- [x] Estructura modular del repositorio
+- [x] Retrieval con base vectorial ChromaDB
+- [x] Re-ranking de documentos
+- [x] Orquestación con LangChain
+- [x] Agente cíclico con LangGraph
+- [x] Adaptador MCP seguro
+- [x] Observabilidad con LangSmith y Arize Phoenix
+- [x] Scripts de despliegue Docker, Kubernetes y Serverless
+- [x] Documentación de arquitectura y ejecución
