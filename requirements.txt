@@ -10,3 +10,5 @@ pytest
 fastapi
 uvicorn
 httpx
+sentence-transformers
+torch

@@ -1,26 +1,39 @@
+import time
+
 from langgraph.graph import StateGraph, END
 
 from agente.state import AgentState
+from agente.memory import MemoriaConversacional
 from orquestacion.langchain_pipeline import ejecutar_pipeline
-
-import time
-
 from observabilidad.langsmith_config import configurar_langsmith
 from observabilidad.arize_config import registrar_inferencia
 
+
 MAX_ITERACIONES = 3
 UMBRAL_CONFIANZA = 0.75
+
+memoria = MemoriaConversacional()
 
 
 def ejecutar_rag(state: AgentState):
     pregunta = state["pregunta"]
 
-    resultado_pipeline = ejecutar_pipeline(pregunta)
+    historial_previo = memoria.obtener_historial()
 
-    historial_actualizado = state["historial"] + [
-        f"Pregunta: {pregunta}",
-        f"Respuesta: {resultado_pipeline['respuesta']}"
-    ]
+    pregunta_con_memoria = f"""
+Historial conversacional:
+{historial_previo}
+
+Pregunta actual:
+{pregunta}
+"""
+
+    resultado_pipeline = ejecutar_pipeline(pregunta_con_memoria)
+
+    memoria.agregar(f"Pregunta: {pregunta}")
+    memoria.agregar(f"Respuesta: {resultado_pipeline['respuesta']}")
+
+    historial_actualizado = memoria.obtener_historial()
 
     return {
         **state,
@@ -99,6 +112,10 @@ if __name__ == "__main__":
 
     print("\nConfianza:")
     print(resultado["confianza"])
+
+    print("\nHistorial:")
+    for item in resultado["historial"]:
+        print("-", item)
 
     print("\nLatencia ms:")
     print(latencia_ms)
